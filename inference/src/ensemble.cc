@@ -56,7 +56,7 @@ float Ensemble::predict(tensorflow::Tensor input) {
     float pred = 0.0;
     for (unsigned int i = 0; i < _n_models; i++) {
         tmp = _models[i].predict(input);
-        if (_verbose) std::cout << "Model " << i << " predicts" << tmp << "\n";
+        if (_verbose) std::cout << "Model " << i << " predicts " << tmp << "\n";
         pred +=_weights[i]*tmp;
     }
     if (_verbose) std::cout << "Weighted prediction " << pred << "\n";

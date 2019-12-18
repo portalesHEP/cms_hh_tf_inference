@@ -28,7 +28,7 @@ public:
     // Methods
 	NN(std::string, unsigned int, bool);
 	~NN();
-	float predict(std::vector<float>);
+	float predict(tensorflow::Tensor);
     bool load_model(std::string);
 };
 

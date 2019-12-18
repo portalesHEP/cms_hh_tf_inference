@@ -49,18 +49,8 @@ bool NN::load_model(std::string root_name) {
     return true;
 }
 
-float NN::predict(std::vector<float> input) {
+float NN::predict(tensorflow::Tensor input) {
     /* Pass features through network and return class prediction */
-
-    if (input.size() > _input_sz) {
-        throw std::length_error("NN expects input of length " << _input_sz << " but received input of length " << input.size());
-        return -1.0;
-    }
-
-    if (_verbose) std::cout << "Building input tensor\n";
-    tensor_input = tensorflow::Tensor(tensorflow::DT_FLOAT, {1, _input_sz});
-    for (unsigned int i = 0; i < input.size(); i++) tensor_input.matrix<float>()(0,static_cast<Eigen::Index>(i)) = static_cast<float>(input[i]);
-    if (_verbose) std::cout << "Input tensor built\n";
 
     if (_verbose) std::cout << "Launching TF session\n";
     session = tensorflow::createSession(_model, _n_threads);
@@ -68,12 +58,12 @@ float NN::predict(std::vector<float> input) {
 
     if (_verbose) std::cout << "Running model\n";
     std::vector<tensorflow::Tensor> outputs;
-    tensorflow::run(session, {{_input_name, tensor_input}}, {_output_name}, &outputs);
+    tensorflow::run(session, {{_input_name, input}}, {_output_name}, &outputs);
     pred = outputs[0].matrix<float>()(0,0);
     if (_verbose) std::cout << "Event evaulated, class prediction is: " << pred << "\n";
     tensorflow::closeSession(session);
 
-    if (pred >= 0.0 && pred <= 1.0) {
+    if (pred < 0.0 || pred > 1.0) {
         throw std::out_of_range("Model prediction of " << pred << " not within range of [0,1]");
         return -1;
     }

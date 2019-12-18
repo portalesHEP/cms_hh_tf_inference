@@ -6,6 +6,9 @@
 #include <iostream>
 #include <string>
 
+// TensorFlow
+#include "DNN/TensorFlow/interface/TensorFlow.h"
+
 // Local
 #include "preproc.hh"
 #include "ensemble.hh"

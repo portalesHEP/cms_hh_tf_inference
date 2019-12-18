@@ -33,14 +33,16 @@ bool Preproc::load_preproc(std::string file_name) {
     return true;
 }
 
-std::vector<float> Preproc::process(std::vector<float> input) {
-    std::vector<float> output(input.size());
+tensorflow::Tensor Preproc::process(std::vector<float> input) {
+    tensorflow::Tensor output(tensorflow::DT_FLOAT, {1, input.size()});
+    float val;
     for (unsigned int i = 0; i < input.size(); i++) {
-        output[i] = input[i];
+        val = input[i];
         if (i < _means.size()) { // Rescale continuous inputs, leave categoricals
-            output[i] -= _means[i];
-            output[i] /= _stdevs[i];
+            val -= _means[i];
+            val /= _stdevs[i];
         }
+        output[i].matrix<float>()(0,static_cast<Eigen::Index>(i)) = val;
     }
     return output;
 }

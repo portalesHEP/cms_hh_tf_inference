@@ -11,6 +11,9 @@
 #include <assert.h>
 #include <experimental/filesystem>
 
+// TensorFlow
+#include "DNN/TensorFlow/interface/TensorFlow.h"
+
 // Local
 #include "nn.hh"
 
@@ -27,7 +30,7 @@ public:
     // Methods
 	Ensemble(std::string, unsigned int, bool);
 	~Ensemble();
-	float predict(std::vector<float>);
+	float predict(tensorflow::Tensor);
     bool load_ensemble(std::string);
 };
 

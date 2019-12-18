@@ -49,7 +49,7 @@ bool Ensemble::load_ensemble(std::string root_name) {
     return true;
 }
 
-float Ensemble::predict(std::vector<float> input) {
+float Ensemble::predict(tensorflow::Tensor input) {
     /* Pass features through all network and return weighted class prediction */
 
     if (_verbose) std::cout << "Predicting input\n";

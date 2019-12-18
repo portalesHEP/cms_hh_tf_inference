@@ -11,6 +11,9 @@
 #include <assert.h>
 #include <experimental/filesystem>
 
+// TensorFlow
+#include "DNN/TensorFlow/interface/TensorFlow.h"
+
 class Preproc {
 	/* Class to handle preprocessing of inpute features*/
 
@@ -22,7 +25,7 @@ public:
     // Methods
 	Preproc(std::string, bool);
 	~Preproc();
-	std::vector<float> process(std::vector<float>);
+	tensorflow::Tensor process(std::vector<float>);
     bool load_preproc(std::string);
 };
 

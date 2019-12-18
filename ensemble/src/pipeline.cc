@@ -13,10 +13,8 @@ Pipeline::~Pipeline() {
 
 float Pipeline::predict(std::vector<float> input) {
     if (_verbose) std::cout << "Preprocessing input\n";
-    std::vector<float> x = _preproc(input);
-    if (_verbose) std::cout << "Input processed\n";
-    if (x.size() != input.size()) throw std::length_error("Something went wrong in preprocessing")
-    if (_verbose) std::cout << "Predicting input\n";
+    tensorflow::Tensor x = _preproc(input);
+    if (_verbose) std::cout << "Input processed, predicting input\n";
     float y = _ensemble.predict(x);
     if (_verbose) std::cout << "Prediction is " << y << "\n";
     return y;

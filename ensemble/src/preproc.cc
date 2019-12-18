@@ -4,7 +4,7 @@ Preproc::Preproc(std::string file_name, bool verbose=false) {
     /* Class to handle preprocessing of inpute features */
 
     _verbose = verbose;
-    assert(load_preproc(file_name));
+    assert(Preproc::load_preproc(file_name));
 }
 
 Preproc::~Preproc() {}

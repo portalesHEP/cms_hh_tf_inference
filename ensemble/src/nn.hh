@@ -3,11 +3,13 @@
 #define NN_HH_
 
 // C++
+#include <iostream>
 #include <string>
 #include <vector>
 #include <sstream>
 #include <fstream>
 #include <assert.h>
+#include <experimental/filesystem>
 
 // TensorFlow
 #include "DNN/TensorFlow/interface/TensorFlow.h"
@@ -19,6 +21,8 @@ private:
 	unsigned int _input_sz, _n_threads;
 	std::string _input_name, _output_name;
     bool _verbose;
+    tensorflow::MetaGraphDef* _model;
+
 
 public:
     // Methods
@@ -26,9 +30,6 @@ public:
 	~NN();
 	float predict(std::vector<float>);
     bool load_model(std::string);
-
-    // Properties
-    tensorflow::MetaGraphDef* model;
 };
 
 #endif /* NN_HH_ */

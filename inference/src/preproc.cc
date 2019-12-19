@@ -39,8 +39,12 @@ tensorflow::Tensor Preproc::process(std::vector<float> input) {
     for (unsigned int i = 0; i < input.size(); i++) {
         val = input[i];
         if (i < _means.size()) { // Rescale continuous inputs, leave categoricals
-            val -= _means[i];
-            val /= _stdevs[i];
+            if (std::isnan(val)) {
+                val = 0.0;
+            } else {
+                val -= _means[i];
+                val /= _stdevs[i];
+            }
         }
         output[i].matrix<float>()(0,static_cast<Eigen::Index>(i)) = val;
     }

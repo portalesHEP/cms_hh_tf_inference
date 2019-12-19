@@ -18,7 +18,7 @@ class NN {
 	/* Class for loading and running a trained neural network */
 
 private:
-	unsigned int _input_sz, _n_threads;
+	unsigned int _n_threads;
 	std::string _input_name, _output_name;
     bool _verbose;
     tensorflow::MetaGraphDef* _model;

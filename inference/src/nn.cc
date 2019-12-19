@@ -15,37 +15,41 @@ NN::~NN() {
 bool NN::load_model(std::string root_name) {
     /* Load TF model from specified protocol buffer file */
 
-    if (!std::experimental::filesystem::exists(root_name + "_model.pb")) {
-        throw std::invalid_argument("File: " + root_name + "_model.pb not found");
+    if (!std::experimental::filesystem::exists(root_name + ".pb")) {
+        throw std::invalid_argument("File: " + root_name + ".pb not found");
         return false;
     }
-    if (!std::experimental::filesystem::exists(root_name + "_info.txt")) {
-        throw std::invalid_argument("File: " + root_name + "_info.txt not found");
-        return false;
-    }
+    // if (!std::experimental::filesystem::exists(root_name + "_info.txt")) {
+    //     throw std::invalid_argument("File: " + root_name + "_info.txt not found");
+    //     return false;
+    // }
 
-    if (_verbose) std::cout << "Both required files found\n";
-    std::string line;
-    std::ifstream infile(root_name + "_info.txt");
-    while (std::getline(infile, line)) {
-        std::istringstream iss(line);
-        std::string arg, val;
-        if (!(iss >> arg >> val)) break; // error
-        if (arg == "input_sz") {
-            if (_verbose) std::cout << "Input size " << val << "\n";
-            _input_sz = std::stoi(val);
-        } else if (arg == "input_name") {
-            if (_verbose) std::cout << "Input name " << val << "\n";
-            _input_name = val;
-        } else if (arg == "output_name") {
-            if (_verbose) std::cout << "Output name " << val << "\n";
-            _output_name = val;
-        }
-    }
-    infile.close();
+    // if (_verbose) std::cout << "Both required files found\n";
+    // std::string line;
+    // std::ifstream infile(root_name + "_info.txt");
+    // while (std::getline(infile, line)) {
+    //     std::istringstream iss(line);
+    //     std::string arg, val;
+    //     if (!(iss >> arg >> val)) break; // error
+    //     if (arg == "input_name") {
+    //         if (_verbose) std::cout << "Input name " << val << "\n";
+    //         _input_name = val;
+    //     } else if (arg == "output_name") {
+    //         if (_verbose) std::cout << "Output name " << val << "\n";
+    //         _output_name = val;
+    //     }
+    // }
+    // infile.close();
     if (_verbose) std::cout << "Loading model\n";
     _model = tensorflow::loadMetaGraph(root_name + "_model.pb", _n_threads);
     if (_verbose) std::cout << "Model loaded\n";
+
+     _input_name  = _model->node(0).name();
+     _output_name = _model->node(_model->node_size()-1).name();
+
+    if (_verbose) {
+        for (int i = 0; i < _model->node_size(); i++) std::cout << "Tensor " << i << " name " <<  _model->node(i).name() << "\n";
+    }
     return true;
 }
 

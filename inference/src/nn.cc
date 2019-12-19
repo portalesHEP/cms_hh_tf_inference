@@ -9,7 +9,7 @@ NN::NN(std::string root_name, unsigned int n_threads, bool verbose=false) {
 }
 
 NN::~NN() {
-    delete model;
+    delete _model;
 }
 
 bool NN::load_model(std::string root_name) {
@@ -41,7 +41,7 @@ bool NN::load_model(std::string root_name) {
     // }
     // infile.close();
     if (_verbose) std::cout << "Loading model\n";
-    _model = tensorflow::loadMetaGraph(root_name + "_model.pb", _n_threads);
+    _model = tensorflow::loadMetaGraph(root_name + "_model.pb", static_cast<int>(_n_threads));
     if (_verbose) std::cout << "Model loaded\n";
 
      _input_name  = _model->node(0).name();
@@ -57,13 +57,13 @@ float NN::predict(tensorflow::Tensor input) {
     /* Pass features through network and return class prediction */
 
     if (_verbose) std::cout << "Launching TF session\n";
-    session = tensorflow::createSession(_model, _n_threads);
+    tensorflow::Session* session = tensorflow::createSession(_model, static_cast<int>(_n_threads));
     if (_verbose) std::cout << "TF session launched\n";
 
     if (_verbose) std::cout << "Running model\n";
     std::vector<tensorflow::Tensor> outputs;
     tensorflow::run(session, {{_input_name, input}}, {_output_name}, &outputs);
-    pred = outputs[0].matrix<float>()(0,0);
+    float pred = outputs[0].matrix<float>()(0,0);
     if (_verbose) std::cout << "Event evaulated, class prediction is: " << pred << "\n";
     tensorflow::closeSession(session);
 
@@ -71,5 +71,5 @@ float NN::predict(tensorflow::Tensor input) {
         throw std::out_of_range("Model prediction of " << pred << " not within range of [0,1]");
         return -1;
     }
-    return pred
+    return pred;
 }

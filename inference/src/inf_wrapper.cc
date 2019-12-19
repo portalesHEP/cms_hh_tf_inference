@@ -10,10 +10,11 @@ InfWrapper::~InfWrapper() {
     _pipes.clear();
 }
 
-InfWrapper::load_pipeline(std::string root_name, unsigned int n_threads) {
+bool InfWrapper::load_pipeline(std::string root_name, unsigned int n_threads) {
     _pipes.push_back(Pipeline(Preproc(root_name + "preproc.txt", _verbose),
                               Ensemble(root_name, n_threads, _verbose),
                               _verbose))
+    return true;
 }
 
 float InfWrapper::predict(std::vector<float> input, unsigned long int event_id) {

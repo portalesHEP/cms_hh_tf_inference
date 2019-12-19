@@ -34,7 +34,7 @@ bool Preproc::load_preproc(std::string file_name) {
 }
 
 tensorflow::Tensor Preproc::process(std::vector<float> input) {
-    tensorflow::Tensor output(tensorflow::DT_FLOAT, {1, input.size()});
+    tensorflow::Tensor output(tensorflow::DT_FLOAT, {1, static_cast<long long int>(input.size())});
     float val;
     for (unsigned int i = 0; i < input.size(); i++) {
         val = input[i];
@@ -46,7 +46,7 @@ tensorflow::Tensor Preproc::process(std::vector<float> input) {
                 val /= _stdevs[i];
             }
         }
-        output[i].matrix<float>()(0,static_cast<Eigen::Index>(i)) = val;
+        output.matrix<float>()(0,static_cast<Eigen::Index>(i)) = val;
     }
     return output;
 }

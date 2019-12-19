@@ -5,7 +5,7 @@ Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose=f
 
     _verbose = verbose;
     _n_threads = n_threads;
-    assert(Ensemble::load_model(root_name));
+    assert(Ensemble::load_ensemble(root_name));
 }
 
 Ensemble::~Ensemble() {
@@ -54,11 +54,12 @@ float Ensemble::predict(tensorflow::Tensor input) {
 
     if (_verbose) std::cout << "Predicting input\n";
     float pred = 0.0;
+    float tmp;
     for (unsigned int i = 0; i < _n_models; i++) {
         tmp = _models[i].predict(input);
         if (_verbose) std::cout << "Model " << i << " predicts " << tmp << "\n";
         pred +=_weights[i]*tmp;
     }
     if (_verbose) std::cout << "Weighted prediction " << pred << "\n";
-    return pred
+    return pred;
 }

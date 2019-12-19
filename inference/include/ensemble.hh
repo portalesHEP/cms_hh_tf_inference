@@ -1,4 +1,3 @@
- 
 #ifndef ENSEMBLE_HH_
 #define ENSEMBLE_HH_
 
@@ -12,7 +11,7 @@
 #include <experimental/filesystem>
 
 // TensorFlow
-#include "DNN/TensorFlow/interface/TensorFlow.h"
+#include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
 
 // Local
 #include "nn.hh"

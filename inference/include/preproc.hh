@@ -1,4 +1,3 @@
- 
 #ifndef PREPROC_HH_
 #define PREPROC_HH_
 
@@ -12,7 +11,7 @@
 #include <experimental/filesystem>
 
 // TensorFlow
-#include "DNN/TensorFlow/interface/TensorFlow.h"
+#include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
 
 class Preproc {
 	/* Class to handle preprocessing of inpute features*/

@@ -1,4 +1,3 @@
- 
 #ifndef NN_HH_
 #define NN_HH_
 
@@ -12,7 +11,7 @@
 #include <experimental/filesystem>
 
 // TensorFlow
-#include "DNN/TensorFlow/interface/TensorFlow.h"
+#include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
 
 class NN {
 	/* Class for loading and running a trained neural network */

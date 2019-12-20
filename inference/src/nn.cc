@@ -41,7 +41,7 @@ bool NN::load_model(std::string root_name) {
     // }
     // infile.close();
     if (_verbose) std::cout << "Loading model\n";
-    _model = tensorflow::loadGraphDef(root_name + "_model.pb", _n_threads));
+    _model = tensorflow::loadGraphDef(root_name + "_model.pb", _n_threads);
     if (_verbose) std::cout << "Model loaded\n";
 
      _input_name  = _model->node(0).name();
@@ -57,7 +57,7 @@ float NN::predict(tensorflow::Tensor input) {
     /* Pass features through network and return class prediction */
 
     if (_verbose) std::cout << "Launching TF session\n";
-    tensorflow::Session* session = tensorflow::createSession(_model, _n_threads));
+    tensorflow::Session* session = tensorflow::createSession(_model, _n_threads);
     if (_verbose) std::cout << "TF session launched\n";
 
     if (_verbose) std::cout << "Running model\n";

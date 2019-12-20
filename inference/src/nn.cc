@@ -41,7 +41,7 @@ bool NN::load_model(std::string root_name) {
     // }
     // infile.close();
     if (_verbose) std::cout << "Loading model\n";
-    _model = tensorflow::loadMetaGraph(root_name + "_model.pb", static_cast<int>(_n_threads));
+    _model = tensorflow::loadGraphDef(root_name + "_model.pb", _n_threads));
     if (_verbose) std::cout << "Model loaded\n";
 
      _input_name  = _model->node(0).name();
@@ -57,7 +57,7 @@ float NN::predict(tensorflow::Tensor input) {
     /* Pass features through network and return class prediction */
 
     if (_verbose) std::cout << "Launching TF session\n";
-    tensorflow::Session* session = tensorflow::createSession(_model, static_cast<int>(_n_threads));
+    tensorflow::Session* session = tensorflow::createSession(_model, _n_threads));
     if (_verbose) std::cout << "TF session launched\n";
 
     if (_verbose) std::cout << "Running model\n";
@@ -68,7 +68,7 @@ float NN::predict(tensorflow::Tensor input) {
     tensorflow::closeSession(session);
 
     if (pred < 0.0 || pred > 1.0) {
-        throw std::out_of_range("Model prediction of " << pred << " not within range of [0,1]");
+        throw std::out_of_range("Model prediction of " + std::to_string(pred) + " not within range of [0,1]");
         return -1;
     }
     return pred;

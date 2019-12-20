@@ -20,7 +20,7 @@ private:
 	unsigned int _n_threads;
 	std::string _input_name, _output_name;
     bool _verbose;
-    tensorflow::MetaGraphDef* _model;
+    tensorflow::GraphDef* _model;
 
 
 public:

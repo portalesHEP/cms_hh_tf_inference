@@ -20,7 +20,7 @@ public:
 	InfWrapper(std::string, unsigned int, bool);
 	~InfWrapper();
 	float predict(std::vector<float>, unsigned long int);
-    bool load_pipeline(std::string, unsigned int);
+    void load_pipeline(std::string, unsigned int);
 };
 
 #endif /* INF_WRAPPER_HH_ */

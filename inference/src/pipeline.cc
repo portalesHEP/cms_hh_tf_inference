@@ -7,13 +7,13 @@ Pipeline::Pipeline(Preproc preproc, Ensemble ensemble, bool verbose) {
 }
 
 Pipeline::~Pipeline() {
-    delete _preproc;
-    delete _ensemble;
+    _preproc.~Preproc();
+    _ensemble.~Ensemble();
 }
 
 float Pipeline::predict(std::vector<float> input) {
     if (_verbose) std::cout << "Preprocessing input\n";
-    tensorflow::Tensor x = _preproc(input);
+    tensorflow::Tensor x = _preproc.preocess(input);
     if (_verbose) std::cout << "Input processed, predicting input\n";
     float y = _ensemble.predict(x);
     if (_verbose) std::cout << "Prediction is " << y << "\n";

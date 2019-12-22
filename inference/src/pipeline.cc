@@ -1,6 +1,6 @@
 #include "../include/pipeline.hh"
 
-Pipeline::Pipeline(Preproc preproc, Ensemble ensemble, bool verbose) {
+Pipeline::Pipeline(Preproc* preproc, Ensemble* ensemble, bool verbose) {
     _preproc = preproc;
     _ensemble = ensemble;
     _verbose = verbose;

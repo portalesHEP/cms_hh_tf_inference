@@ -11,8 +11,8 @@ InfWrapper::~InfWrapper() {
 }
 
 void InfWrapper::load_pipeline(std::string root_name, unsigned int n_threads) {
-    _pipes.push_back(Pipeline(Preproc(root_name + "preproc.txt", _verbose),
-                              Ensemble(root_name, n_threads, _verbose),
+    _pipes.push_back(Pipeline(new Preproc(root_name + "preproc.txt", _verbose),
+                              new Ensemble(root_name, n_threads, _verbose),
                               _verbose));
 }
 

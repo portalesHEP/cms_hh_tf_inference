@@ -17,13 +17,13 @@ class Pipeline {
 	/* Class to handle all steps of processing and predictions */
 
 private:
-    Preproc* _preproc;
-    Ensemble* _ensemble;
+    Preproc _preproc;
+    Ensemble _ensemble;
     bool _verbose;
 
 public:
     // Methods
-	Pipeline(Preproc*, Ensemble*, bool);
+	Pipeline(Preproc, Ensemble, bool);
 	~Pipeline();
 	float predict(std::vector<float>);
 };

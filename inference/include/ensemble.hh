@@ -8,7 +8,6 @@
 #include <sstream>
 #include <fstream>
 #include <assert.h>
-#include <filesystem>
 
 // TensorFlow
 #include "PhysicsTools/TensorFlow/interface/TensorFlow.h"

@@ -15,7 +15,7 @@ Ensemble::~Ensemble() {
 bool Ensemble::load_ensemble(std::string root_name) {
     /* Load ensemble of models and settings */
 
-    if (!std::filesystem::exists(root_name + "model_weights.txt")) {
+    if (!std::experimental::filesystem::exists(root_name + "model_weights.txt")) {
         throw std::invalid_argument("File: " + root_name + "model_weights.txt not found");
         return false;
     }

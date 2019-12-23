@@ -1,5 +1,4 @@
 <use name="PhysicsTools/TensorFlow"/>
-<use name="experimental/filesystem"/>
 
 <export>
     <lib name="1" />

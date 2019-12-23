@@ -1,4 +1,3 @@
 <bin name="testloop" file="src/test.cc">
     <use name="PhysicsTools/TensorFlow"/>
-    <use name="experimental/filesystem"/>
 </bin>

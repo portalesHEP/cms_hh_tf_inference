@@ -11,10 +11,10 @@ Preproc::~Preproc() {}
 
 bool Preproc::load_preproc(std::string file_name) {
     /* Load preproc settings */
-    // if (!boost::filesystem::exists(file_name)) {
-    //     throw std::invalid_argument("File: " + file_name + " not found");
-    //     return false;
-    // }
+    if (!boost::filesystem::exists(file_name)) {
+        throw std::invalid_argument("File: " + file_name + " not found");
+        return false;
+    }
 
     // Load models and weights
     if (_verbose) std::cout << "Required file found\n";

@@ -15,10 +15,10 @@ NN::~NN() {
 bool NN::load_model(std::string root_name) {
     /* Load TF model from specified protocol buffer file */
 
-    if (!boost::filesystem::exists(root_name + ".pb")) {
-        throw std::invalid_argument("File: " + root_name + ".pb not found");
-        return false;
-    }
+    // if (!boost::filesystem::exists(root_name + ".pb")) {
+    //     throw std::invalid_argument("File: " + root_name + ".pb not found");
+    //     return false;
+    // }
     // if (!boost::filesystem::exists(root_name + "_info.txt")) {
     //     throw std::invalid_argument("File: " + root_name + "_info.txt not found");
     //     return false;

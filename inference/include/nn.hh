@@ -8,7 +8,7 @@
 #include <sstream>
 #include <fstream>
 #include <assert.h>
-#include "boost/filesystem.hpp"
+// #include "boost/filesystem.hpp"
 
 // TensorFlow
 #include "PhysicsTools/TensorFlow/interface/TensorFlow.h"

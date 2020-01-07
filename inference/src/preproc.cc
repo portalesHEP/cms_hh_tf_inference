@@ -1,4 +1,4 @@
-#include "../include/preproc.hh"
+#include "interface/include/preproc.hh"
 
 Preproc::Preproc(std::string file_name, bool verbose=false) {
     /* Class to handle preprocessing of inpute features */

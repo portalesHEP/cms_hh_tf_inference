@@ -1,4 +1,4 @@
-#include "../include/inf_wrapper.hh"
+#include "interface/include/inf_wrapper.hh"
 #include <iostream>
 #include <string>
 #include <map>

@@ -1,4 +1,4 @@
-#include "interface/include/inf_wrapper.hh"
+#include "inference/include/inf_wrapper.hh"
 
 InfWrapper::InfWrapper(std::string root_name, unsigned int n_threads, bool verbose) {
     _verbose = verbose;

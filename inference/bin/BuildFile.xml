@@ -2,5 +2,5 @@
     <use name="PhysicsTools/TensorFlow"/>
     <use name="tensorflow" />
     <use name="tensorflow-cc" />
-    <use name="cms_hh_tf_interface/inference/interface" />
+    <use name="cms_hh_tf_interface/inference/" />
 </bin>

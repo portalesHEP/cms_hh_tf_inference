@@ -11,7 +11,7 @@
 #include "boost/filesystem.hpp"
 
 // TensorFlow
-#include "PhysicsTools/TensorFlow/inference/TensorFlow.h"
+#include "PhysicsTools/TensorFlow/interface/TensorFlow.h"
 
 class Preproc {
 	/* Class to handle preprocessing of inpute features*/

@@ -1,4 +1,4 @@
-#include "cms_hh_tf_inference/interface/ensemble.hh"
+#include "cms_hh_tf_inference/inference/interface/ensemble.hh"
 
 Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose=false) {
     /* Class to handle loading and inference of ensembling of models */

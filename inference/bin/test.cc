@@ -59,7 +59,7 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
         std::cout << "Row [";
         while (std::getline(iss, val, ',')) {   // Row to vector
             if (val == "") {
-                row.push_back(nanf);
+                row.push_back(std::nanf);
             } else {
                 row.push_back(std::stof(val));
             }

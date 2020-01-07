@@ -1,4 +1,4 @@
-#include "../../inference/include/inf_wrapper.hh"
+#include "../include/inf_wrapper.hh"
 #include <iostream>
 #include <string>
 #include <map>

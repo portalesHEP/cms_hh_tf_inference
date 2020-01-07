@@ -1,4 +1,4 @@
-#include "inference/include/pipeline.hh"
+#include "cms_hh_tf_inference/inference/include/pipeline.hh"
 
 Pipeline::Pipeline(Preproc* preproc, Ensemble* ensemble, bool verbose) {
     _preproc = preproc;

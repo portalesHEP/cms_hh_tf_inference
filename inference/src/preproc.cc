@@ -1,4 +1,4 @@
-#include "inference/include/preproc.hh"
+#include "cms_hh_tf_inference/inference/include/preproc.hh"
 
 Preproc::Preproc(std::string file_name, bool verbose=false) {
     /* Class to handle preprocessing of inpute features */

@@ -1,4 +1,4 @@
-#include "inference/include/nn.hh"
+#include "cms_hh_tf_inference/inference/include/nn.hh"
 
 NN::NN(std::string root_name, unsigned int n_threads, bool verbose=false) {
     /* Basic class to load and apply saved TF models */

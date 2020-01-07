@@ -1,4 +1,4 @@
-#include "inference/include/inf_wrapper.hh"
+#include "cms_hh_tf_inference/inference/include/inf_wrapper.hh"
 #include <iostream>
 #include <string>
 #include <map>

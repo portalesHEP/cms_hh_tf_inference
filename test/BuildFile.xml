@@ -1,4 +1,4 @@
-<bin name="testloop" file="src/test.cc">
+<bin name="testloop" file="stest.cc">
     <use name="PhysicsTools/TensorFlow"/>
     <use name="tensorflow" />
     <use name="tensorflow-cc" />

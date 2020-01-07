@@ -53,11 +53,11 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
     std::string line, val;
     float pred, targ, diff;
     std::ifstream infile(file_name);
-    while (std::getline(infile, line)) { // Read in event
+    while (std::getline(infile, line)) {  // Read in event
         std::istringstream iss(line);
         row.clear();
         std::cout << "Row [";
-        while (std::getline(iss, val, ",")) {   // Row to vector
+        while (std::getline(iss, val, ',')) {   // Row to vector
             if (val == "") {
                 row.push_back(nanf);
             } else {

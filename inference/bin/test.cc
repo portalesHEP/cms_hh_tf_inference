@@ -59,14 +59,14 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
         std::cout << "Row [";
         while (std::getline(iss, val, ',')) {   // Row to vector
             if (val == "") {
-                row.push_back(std::nanf);
+                row.push_back(*std::nanf);
             } else {
                 row.push_back(std::stof(val));
             }
             std::cout << val << ",";
         }
         std::cout << "]\n";
-        pred = wrapper.predict(std::vector<int>(row.begin(), row.end()-1), event_id);
+        pred = wrapper->predict(std::vector<int>(row.begin(), row.end()-1), event_id);
         targ = row.back();
         diff = std::abs(targ-pred);
         std::cout << "prediction:" << pred << " expected " << targ << " difference " << diff << "\n";

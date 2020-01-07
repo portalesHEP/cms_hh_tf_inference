@@ -1,6 +1,6 @@
 <bin name="testloop" file="test.cc">
     <use name="PhysicsTools/TensorFlow"/>
-    <use name="tensorflow" />
-    <use name="tensorflow-cc" />
+    <!-- <use name="tensorflow" />
+    <use name="tensorflow-cc" /> -->
     <use name="cms_hh_tf_interface/inference/" />
 </bin>

@@ -1,0 +1,7 @@
+<use name="PhysicsTools/TensorFlow"/>
+<use name="tensorflow" />
+<use name="tensorflow-cc" />
+
+<export>
+    <lib name="1" />
+</export>

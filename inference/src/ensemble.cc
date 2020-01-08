@@ -57,6 +57,8 @@ float Ensemble::predict(tensorflow::Tensor input) {
     if (_verbose) std::cout << "Predicting input\n";
     float pred = 0.0;
     float tmp;
+
+    #pragma omp parallel for reduction(+:pred)
     for (unsigned int i = 0; i < _n_models; i++) {
         tmp = _models[i].predict(input);
         if (_verbose) std::cout << "Model " << i << " predicts " << tmp << "\n";

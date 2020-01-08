@@ -50,6 +50,7 @@ tensorflow::Tensor Preproc::process(std::vector<float> input) {
         }
         std::cout << val << "\n";
         output.matrix<float>()(0,static_cast<Eigen::Index>(i)) = val;
+        std::cout << output.matrix<float>()(0,static_cast<Eigen::Index>(i)) << "\n";
     }
     return output;
 }

@@ -13,9 +13,7 @@ NN::NN(std::string root_name, unsigned int n_threads, bool verbose=false) {
     if (_verbose) std::cout << "TF session launched\n";
 }
 
-NN::~NN() {
-    tensorflow::closeSession(_session);
-}
+NN::~NN() {}
 
 bool NN::load_model(std::string root_name) {
     /* Load TF model from specified protocol buffer file */

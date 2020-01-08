@@ -37,4 +37,4 @@ The input vector to `InfWrapper.predict` should not contain any default 'placeho
 
 # Notes
 
-`.pb` files must be created with the same version of TensorFlow that will be later used to read them: 1.6 for CMSSW_10_2+X, 1.13.1 for 10_6_X. Package requirements are configured to install TF 1.6.
+`.pb` files must be created with the same version of TensorFlow that will be later used to read them: 1.6 for CMSSW_10_2_X, 1.13.1 for 10_6_X. Package requirements are configured to install TF 1.6. Unfortunately, Github informs me that TF < 1.15 contains several vulnerabilities, but since we're running our own code and data, this hopefully shouldn't be a problem...

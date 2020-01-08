@@ -25,6 +25,7 @@ bool Ensemble::load_ensemble(std::string root_name) {
     std::string line;
     std::ifstream infile(root_name + "model_weights.txt");
     while (std::getline(infile, line)) {
+        std::cout << line << "\n";
         std::cout << "h0\n";
         std::istringstream iss(line);
         std::cout << "h1\n";

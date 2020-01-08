@@ -11,7 +11,7 @@ NN::NN(std::string root_name, unsigned int n_threads, bool verbose=false) {
 }
 
 NN::~NN() {
-    delete _model;
+    //delete _model;
 }
 
 bool NN::load_model(std::string root_name) {

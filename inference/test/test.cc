@@ -8,11 +8,13 @@
 #include <vector>
 #include <cmath>
 
+std::string root_dir = "../../src/cms_hh_tf_inference/testing_setup/python/";
+
 void show_help() {
     /* Show help for input arguments */
 
-    std::cout << "-i : model root name, default cms_hh_tf_inference/testing/python/models/ensemble\n";
-    std::cout << "-d : data directory, default cms_hh_tf_inference/testing/python/data/\n";
+    std::cout << "-i : model root name, default " << root_dir << "models/ensemble\n";
+    std::cout << "-d : data root name, default " << root_dir << "data/set\n";
     std::cout << "-n : number of threads, default 1\n";
     std::cout << "-v : Run in verbose point, default off\n";
 }
@@ -21,8 +23,8 @@ std::map<std::string, std::string> get_options(int argc, char* argv[]) {
     /*Interpret input arguments*/
 
     std::map<std::string, std::string> options;
-    options.insert(std::make_pair("-i", "cms_hh_tf_inference/testing/python/models/ensemble")); // model root name
-    options.insert(std::make_pair("-d", "cms_hh_tf_inference/testing/python/data/")); // data directory
+    options.insert(std::make_pair("-i", root_dir + "models/ensemble")); // model root name
+    options.insert(std::make_pair("-d", root_dir + "data/")); // data directory
     options.insert(std::make_pair("-n", "1")); // number of threads
     options.insert(std::make_pair("-v", "false")); // verbose mode
 

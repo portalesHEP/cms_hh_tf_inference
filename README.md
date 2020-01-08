@@ -33,7 +33,9 @@ The `Ensemble` class contains a several TensorFlow models and a set of weights t
 
 ## Important!
 
-The input vector to `InfWrapper.predict` should not contain any default 'placeholder' values like -999.00. These should be replaced with `std:nanf`. `Preproc.process` will later replace them with zeros after preprocessing non-NaN values.
+- The input vector to `InfWrapper.predict` should not contain any default 'placeholder' values like -999.00. These should be replaced with `std:nanf`. `Preproc.process` will later replace them with zeros after preprocessing non-NaN values.
+- Both frameworks (Pisa and Paris) must use the same event IDs, in order to prevent the ensembles from predicting events on which they were trained. 
+
 
 # Notes
 

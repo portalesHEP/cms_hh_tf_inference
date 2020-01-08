@@ -27,10 +27,10 @@ bool NN::load_model(std::string root_name) {
      _output_name = _model->node(_model->node_size()-1).name();
 
     if (_verbose) {
-        std::cout << "Model:\n______________________________\n______________________________\n"
+        std::cout << "Model:\n______________________________\n______________________________\n";
         for (int i = 0; i < _model->node_size(); i++) std::cout << "Tensor " << i << " name " <<  _model->node(i).name() << "\n";
-        std::cout << "Model:\n______________________________\n______________________________\n"
-        std::cout << "Using " << _input_name << " as input and " << _output_name << " as output\n"
+        std::cout << "Model:\n______________________________\n______________________________\n";
+        std::cout << "Using " << _input_name << " as input and " << _output_name << " as output\n";
     }
     return true;
 }

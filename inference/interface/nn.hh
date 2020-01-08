@@ -21,7 +21,7 @@ private:
 	std::string _input_name, _output_name;
     bool _verbose;
     tensorflow::GraphDef* _model;
-
+	tensorflow::Session* _session;
 
 public:
     // Methods

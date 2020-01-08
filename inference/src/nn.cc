@@ -23,12 +23,8 @@ bool NN::load_model(std::string root_name) {
     _model = tensorflow::loadGraphDef(root_name + ".pb");
     if (_verbose) std::cout << "protobuf loaded\n";
 
-     _input_name  = "0"; //_model->node(0).name();
+     _input_name  = "0";
      _output_name = _model->node(_model->node_size()-1).name();
-
-    if (_verbose) {
-        for (int i = 0; i < _model->node_size(); i++) std::cout << "Tensor " << i << " name " <<  _model->node(i).name() << "\n";
-    }
 
     if (_verbose) std::cout << "Using " << _input_name << " as input and " << _output_name << " as output\n";
     return true;
@@ -40,7 +36,6 @@ float NN::predict(tensorflow::Tensor input) {
     if (_verbose) std::cout << "Launching TF session... ";
     tensorflow::Session* session = tensorflow::createSession(_model, _n_threads);
     if (_verbose) std::cout << "TF session launched\n";
-    for (Eigen::Index i = 0; i < 30; i++) std::cout << input.matrix<float>()(0,i) << "\n";
     if (_verbose) std::cout << "Running model:\n";
     std::vector<tensorflow::Tensor> outputs;
     tensorflow::run(session, {{_input_name, input}}, {_output_name}, &outputs);

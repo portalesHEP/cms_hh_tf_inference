@@ -34,10 +34,12 @@ bool Ensemble::load_ensemble(std::string root_name) {
         std::cout << "h3\n";
         if (_verbose) std::cout << "Loading model " << name << " with weight " << weight << "\n";
         std::cout << "h4\n";
-        _models.push_back(NN(root_name + name, _n_threads, _verbose));
+        NN nn = NN(root_name + name, _n_threads, _verbose);
         std::cout << "h5\n";
-        _weights.push_back(std::stof(weight));
+        _models.push_back(nn);
         std::cout << "h6\n";
+        _weights.push_back(std::stof(weight));
+        std::cout << "h7\n";
     }
     infile.close();
     _n_models = _models.size();

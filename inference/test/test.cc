@@ -58,7 +58,7 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
         throw std::invalid_argument("File: " + file_name + " not found");
         return false;
     }
-    std::cout << "Opening" << file_name << "\n";
+    std::cout << "Opening " << file_name << "\n";
     std::ifstream infile(file_name);
     while (std::getline(infile, line)) {  // Read in event
         std::istringstream iss(line);
@@ -68,6 +68,7 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
             if (val == "") {
                 row.push_back(std::nanf("1"));
             } else {
+                std::cout << val << "\n";
                 row.push_back(std::stof(val));
             }
             std::cout << val << ",";

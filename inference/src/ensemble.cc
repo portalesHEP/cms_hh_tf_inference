@@ -7,7 +7,7 @@ Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose=f
     _n_threads = n_threads;
     if (_verbose) std::cout << "\nBuilding ensemble\n";
     assert(Ensemble::load_ensemble(root_name));
-    if (_verbose) std::cout << "Ensemble built";
+    if (_verbose) std::cout << "Ensemble built\n";
 }
 
 Ensemble::~Ensemble() {
@@ -37,7 +37,7 @@ bool Ensemble::load_ensemble(std::string root_name) {
     }
     infile.close();
     _n_models = _models.size();
-    if (_verbose) std::cout << _n_models << " loaded\n";
+    if (_verbose) std::cout << "\n" << _n_models << " models loaded\n";
 
     // Renormalise weights
     float sum = 0.0;

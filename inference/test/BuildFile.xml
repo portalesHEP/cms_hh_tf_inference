@@ -1,5 +1,4 @@
 <bin name="testloop" file="test.cc">
     <use name="PhysicsTools/TensorFlow"/>
     <use name="cms_hh_tf_inference/inference" />
-    <flags CXXFLAGS="-fopenmp"/>
 </bin>

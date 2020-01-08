@@ -4,7 +4,7 @@ Preproc::Preproc(std::string file_name, bool verbose=false) {
     /* Class to handle preprocessing of inpute features */
 
     _verbose = verbose;
-    if (_verbose) std::cout << "\nBuilding preprocessor\n";
+    if (_verbose) std::cout << "\nBuilding preprocessor  " << root_name << "\n";
     assert(Preproc::load_preproc(file_name));
     if (_verbose) std::cout << "Preprocessor built\n";
 }

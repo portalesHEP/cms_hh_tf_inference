@@ -5,7 +5,7 @@ Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose=f
 
     _verbose = verbose;
     _n_threads = n_threads;
-    if (_verbose) std::cout << "\nBuilding ensemble\n";
+    if (_verbose) std::cout << "\nBuilding ensemble from " << root_name << "\n";
     assert(Ensemble::load_ensemble(root_name));
     if (_verbose) std::cout << "Ensemble built\n";
 }

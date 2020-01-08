@@ -5,9 +5,9 @@ NN::NN(std::string root_name, unsigned int n_threads, bool verbose=false) {
 
     _verbose = verbose;
     _n_threads = n_threads;
-    if (_verbose) std::cout << "Loading model";
+    if (_verbose) std::cout << "Loading model\n";
     assert(NN::load_model(root_name));
-    if (_verbose) std::cout << "Model loaded";
+    if (_verbose) std::cout << "Model loaded\n";
 }
 
 NN::~NN() {
@@ -23,7 +23,7 @@ bool NN::load_model(std::string root_name) {
     }
     if (_verbose) std::cout << "Loading protobuf...";
     _model = tensorflow::loadGraphDef(root_name + ".pb");
-    if (_verbose) std::cout << "\tprotobuf loaded\n";
+    if (_verbose) std::cout << "protobuf loaded\n";
 
      _input_name  = _model->node(0).name();
      _output_name = _model->node(_model->node_size()-1).name();
@@ -42,7 +42,7 @@ float NN::predict(tensorflow::Tensor input) {
 
     if (_verbose) std::cout << "Launching TF session... ";
     tensorflow::Session* session = tensorflow::createSession(_model, _n_threads);
-    if (_verbose) std::cout << "\tTF session launched\n";
+    if (_verbose) std::cout << "TF session launched\n";
 
     if (_verbose) std::cout << "Running model:\n";
     std::vector<tensorflow::Tensor> outputs;

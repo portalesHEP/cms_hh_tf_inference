@@ -38,6 +38,7 @@ float NN::predict(tensorflow::Tensor input) {
     if (_verbose) std::cout << "TF session launched\n";
 
     if (_verbose) std::cout << "Running model:\n";
+    std::cout << input << "\n";
     std::vector<tensorflow::Tensor> outputs;
     tensorflow::run(session, {{_input_name, input}}, {_output_name}, &outputs);
     float pred = outputs[0].matrix<float>()(0,0);

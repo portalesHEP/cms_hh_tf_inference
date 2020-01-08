@@ -33,7 +33,7 @@ bool NN::load_model(std::string root_name) {
 float NN::predict(tensorflow::Tensor input) {
     /* Pass features through network and return class prediction */
 
-    if (_verbose) std::cout << "Launching TF session... ";
+    if (_verbose) std::cout << "Launching TF session with " << _n_threads << " threads... ";
     tensorflow::Session* session = tensorflow::createSession(_model, _n_threads);
     if (_verbose) std::cout << "TF session launched\n";
     if (_verbose) std::cout << "Running model:\n";

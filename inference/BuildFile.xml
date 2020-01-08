@@ -1,7 +1,7 @@
 <use name="PhysicsTools/TensorFlow"/>
 <use name="tensorflow" />
 <use name="tensorflow-cc" />
-<use name="openmp"/>
+<flags CXXFLAGS="-fopenmp"/>
 
 <export>
     <lib name="1" />

@@ -19,36 +19,18 @@ bool NN::load_model(std::string root_name) {
         throw std::invalid_argument("File: " + root_name + ".pb not found");
         return false;
     }
-    // if (!boost::filesystem::exists(root_name + "_info.txt")) {
-    //     throw std::invalid_argument("File: " + root_name + "_info.txt not found");
-    //     return false;
-    // }
-
-    // if (_verbose) std::cout << "Both required files found\n";
-    // std::string line;
-    // std::ifstream infile(root_name + "_info.txt");
-    // while (std::getline(infile, line)) {
-    //     std::istringstream iss(line);
-    //     std::string arg, val;
-    //     if (!(iss >> arg >> val)) break; // error
-    //     if (arg == "input_name") {
-    //         if (_verbose) std::cout << "Input name " << val << "\n";
-    //         _input_name = val;
-    //     } else if (arg == "output_name") {
-    //         if (_verbose) std::cout << "Output name " << val << "\n";
-    //         _output_name = val;
-    //     }
-    // }
-    // infile.close();
-    if (_verbose) std::cout << "Loading model\n";
+    if (_verbose) std::cout << "Loading model...";
     _model = tensorflow::loadGraphDef(root_name + ".pb");
-    if (_verbose) std::cout << "Model loaded\n";
+    if (_verbose) std::cout << "\tModel loaded\n";
 
      _input_name  = _model->node(0).name();
      _output_name = _model->node(_model->node_size()-1).name();
 
     if (_verbose) {
+        std::cout << "Model:\n______________________________\n______________________________\n"
         for (int i = 0; i < _model->node_size(); i++) std::cout << "Tensor " << i << " name " <<  _model->node(i).name() << "\n";
+        std::cout << "Model:\n______________________________\n______________________________\n"
+        std::cout << "Using " << _input_name << " as input and " << _output_name << " as output\n"
     }
     return true;
 }
@@ -56,11 +38,11 @@ bool NN::load_model(std::string root_name) {
 float NN::predict(tensorflow::Tensor input) {
     /* Pass features through network and return class prediction */
 
-    if (_verbose) std::cout << "Launching TF session\n";
+    if (_verbose) std::cout << "Launching TF session... ";
     tensorflow::Session* session = tensorflow::createSession(_model, _n_threads);
-    if (_verbose) std::cout << "TF session launched\n";
+    if (_verbose) std::cout << "\tTF session launched\n";
 
-    if (_verbose) std::cout << "Running model\n";
+    if (_verbose) std::cout << "Running model:\n";
     std::vector<tensorflow::Tensor> outputs;
     tensorflow::run(session, {{_input_name, input}}, {_output_name}, &outputs);
     float pred = outputs[0].matrix<float>()(0,0);

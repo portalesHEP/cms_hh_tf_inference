@@ -25,12 +25,19 @@ bool Ensemble::load_ensemble(std::string root_name) {
     std::string line;
     std::ifstream infile(root_name + "model_weights.txt");
     while (std::getline(infile, line)) {
+        std::cout << "h0\n";
         std::istringstream iss(line);
+        std::cout << "h1\n";
         std::string name, weight;
+        std::cout << "h2\n";
         if (!(iss >> name >> weight)) break; // error
+        std::cout << "h3\n";
         if (_verbose) std::cout << "Loading model " << name << " with weight " << weight << "\n";
+        std::cout << "h4\n";
         _models.push_back(NN(root_name + name, _n_threads, _verbose));
+        std::cout << "h5\n";
         _weights.push_back(std::stof(weight));
+        std::cout << "h6\n";
     }
     infile.close();
     _n_models = _models.size();

@@ -10,9 +10,7 @@ NN::NN(std::string root_name, unsigned int n_threads, bool verbose=false) {
     if (_verbose) std::cout << "Model loaded\n";
 }
 
-NN::~NN() {
-    //delete _model;  // Is this needed?
-}
+NN::~NN() {}
 
 bool NN::load_model(std::string root_name) {
     /* Load TF model from specified protocol buffer file */

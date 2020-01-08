@@ -54,6 +54,7 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
     std::vector<float> row;
     std::string line, val;
     float pred, targ, diff;
+    std::cout << "Opening" << file_name << "\n"
     std::ifstream infile(file_name);
     while (std::getline(infile, line)) {  // Read in event
         std::istringstream iss(line);
@@ -90,13 +91,13 @@ int main(int argc, char *argv[]) {
     InfWrapper* wrapper = new InfWrapper(options["-i"], n_threads, verbose);
     std::cout << "Wrapper instantiated\n";
 
-    std::cout << "Beginning test loop for ensemble 0\n";
+    std::cout << "\nBeginning test loop for ensemble 0\n";
     assert(run_test_loop(options["-i"]+"_0.csv", wrapper, 0));
     std::cout << "Test loop for ensemble 0 complete\n";
 
-    std::cout << "Beginning test loop for ensemble 1\n";
+    std::cout << "\nBeginning test loop for ensemble 1\n";
     assert(run_test_loop(options["-i"]+"_1.csv", wrapper, 1));
     std::cout << "Test loop for ensemble 1 complete\n";
-    std::cout << "All tests completed sucessfully\n";
+    std::cout << "\nAll tests completed sucessfully\n";
     return 0;
 }

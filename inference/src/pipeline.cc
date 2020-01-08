@@ -6,10 +6,7 @@ Pipeline::Pipeline(Preproc* preproc, Ensemble* ensemble, bool verbose) {
     _verbose = verbose;
 }
 
-Pipeline::~Pipeline() {
-    //delete _preproc;  // Are these needed?
-    //delete _ensemble;
-}
+Pipeline::~Pipeline() {}
 
 float Pipeline::predict(std::vector<float> input) {
     if (_verbose) std::cout << "Preprocessing input\n";

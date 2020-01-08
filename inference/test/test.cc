@@ -60,7 +60,7 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
     }
     std::cout << "Opening " << file_name << "\n";
     std::ifstream infile(file_name);
-    int l = -1
+    int l = -1;
     while (std::getline(infile, line)) {  // Read in event
         l++;
         if (l == 0) continue;  // Skip header

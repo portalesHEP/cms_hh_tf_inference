@@ -32,7 +32,7 @@ bool Ensemble::load_ensemble(std::string root_name) {
         std::string name, weight;
         if (!(iss >> name >> weight)) break; // error
         if (_verbose) std::cout << "Loading model " << name << " with weight " << weight << "\n";
-        _models.push_back(NN(root_name + name, _n_threads, _verbose);
+        _models.push_back(NN(root_name + name, _n_threads, _verbose));
         _weights.push_back(std::stof(weight));
     }
     infile.close();

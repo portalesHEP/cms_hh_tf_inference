@@ -23,7 +23,7 @@ Building the tool in CMSSW will generate an executable in `CMSSW_10_2_16/test/sl
 
 # Usage
 
-The main interface is the `InfWrapper` class. This is instantiated using the absolute path to a directory, which I will distribute during normal usage but an example one will be created by `Model_training_and_export.ipynb`. An `InfWrapper` contains two `Pipeline` classes, one for each ensemble. `InfWrapper.predict` takes a vector of floats (the unpreprocessed input vector in the expected order)and an unsigned long int (the event ID). The event ID is used to determine which pipeline is used to predict the event.
+The main interface is the `InfWrapper` class. This is instantiated using the absolute path to a directory, which I will distribute during normal usage but an example one will be created by `Model_training_and_export.ipynb`. An `InfWrapper` contains two `Pipeline` classes, one for each ensemble. `InfWrapper.predict` takes a vector of floats (the unpreprocessed input vector in the expected order) and an unsigned long int (the event ID). The event ID is used to determine which pipeline is used to predict the event.
 
 The `Pipeline` class consists of: A `Preproc` class, which loads a set of means and standard deviations from a text file to correctly preprocess the input features and convert the to a Tensor; And an `Ensemble` class.
 

@@ -23,7 +23,7 @@ bool NN::load_model(std::string root_name) {
     _model = tensorflow::loadGraphDef(root_name + ".pb");
     if (_verbose) std::cout << "protobuf loaded\n";
 
-     _input_name  = _model->node(0).name();
+     _input_name  = "0" //_model->node(0).name();
      _output_name = _model->node(_model->node_size()-1).name();
 
     if (_verbose) {

@@ -24,7 +24,7 @@ std::map<std::string, std::string> get_options(int argc, char* argv[]) {
 
     std::map<std::string, std::string> options;
     options.insert(std::make_pair("-i", root_dir + "models/ensemble")); // model root name
-    options.insert(std::make_pair("-d", root_dir + "data/")); // data directory
+    options.insert(std::make_pair("-d", root_dir + "data/example")); // data root name
     options.insert(std::make_pair("-n", "1")); // number of threads
     options.insert(std::make_pair("-v", "false")); // verbose mode
 
@@ -96,11 +96,11 @@ int main(int argc, char *argv[]) {
     std::cout << "Wrapper instantiated\n";
 
     std::cout << "\nBeginning test loop for ensemble 0\n";
-    assert(run_test_loop(options["-i"]+"_0.csv", wrapper, 0));
+    assert(run_test_loop(options["-d"]+"_0.csv", wrapper, 0));
     std::cout << "Test loop for ensemble 0 complete\n";
 
     std::cout << "\nBeginning test loop for ensemble 1\n";
-    assert(run_test_loop(options["-i"]+"_1.csv", wrapper, 1));
+    assert(run_test_loop(options["-d"]+"_1.csv", wrapper, 1));
     std::cout << "Test loop for ensemble 1 complete\n";
     std::cout << "\nAll tests completed sucessfully\n";
     return 0;

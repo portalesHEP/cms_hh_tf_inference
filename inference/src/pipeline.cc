@@ -11,7 +11,7 @@ Pipeline::~Pipeline() {}
 float Pipeline::predict(std::vector<float> input) {
     if (_verbose) std::cout << "Preprocessing input\n";
     tensorflow::Tensor x = _preproc->process(input);
-    if (_verbose) std::cout << "Input processed, predicting input\n";
+    if (_verbose) std::cout << "Input processed\n";
     float y = _ensemble->predict(x);
     if (_verbose) std::cout << "Prediction is " << y << "\n";
     return y;

@@ -54,7 +54,7 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
     std::vector<float> row;
     std::string line, val;
     float pred, targ, diff;
-    std::cout << "Opening" << file_name << "\n"
+    std::cout << "Opening" << file_name << "\n";
     std::ifstream infile(file_name);
     while (std::getline(infile, line)) {  // Read in event
         std::istringstream iss(line);

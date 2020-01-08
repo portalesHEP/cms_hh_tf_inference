@@ -41,7 +41,7 @@ bool NN::load_model(std::string root_name) {
     // }
     // infile.close();
     if (_verbose) std::cout << "Loading model\n";
-    _model = tensorflow::loadGraphDef(root_name + "_model.pb");
+    _model = tensorflow::loadGraphDef(root_name + ".pb");
     if (_verbose) std::cout << "Model loaded\n";
 
      _input_name  = _model->node(0).name();

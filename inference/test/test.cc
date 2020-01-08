@@ -60,15 +60,17 @@ bool run_test_loop(std::string file_name, InfWrapper* wrapper, unsigned long int
     }
     std::cout << "Opening " << file_name << "\n";
     std::ifstream infile(file_name);
+    int l = -1
     while (std::getline(infile, line)) {  // Read in event
+        l++;
+        if (l == 0) continue;  // Skip header
         std::istringstream iss(line);
         row.clear();
-        std::cout << "Row [";
+        std::cout << "\nRow " << l << " [";
         while (std::getline(iss, val, ',')) {   // Row to vector
             if (val == "") {
                 row.push_back(std::nanf("1"));
             } else {
-                std::cout << val << "\n";
                 row.push_back(std::stof(val));
             }
             std::cout << val << ",";

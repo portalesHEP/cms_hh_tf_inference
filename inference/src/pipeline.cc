@@ -7,8 +7,8 @@ Pipeline::Pipeline(Preproc* preproc, Ensemble* ensemble, bool verbose) {
 }
 
 Pipeline::~Pipeline() {
-    delete _preproc;  // Are these needed?
-    delete _ensemble;
+    //delete _preproc;  // Are these needed?
+    //delete _ensemble;
 }
 
 float Pipeline::predict(std::vector<float> input) {

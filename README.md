@@ -19,7 +19,7 @@ Plugin to run ensembles of TensorFlow models on incoming data in CMSSW
 # Testing
 
 The file `testing_setup/python/Model_training_and_export.ipynb` will train and export 5 PyTorch models to TensorFlow buffers and generate some training data with the expected predictions, plus files necessary to preprocess the inputs.
-Building the tool in CMSSW will generate an executable in `CMSSW_10_2_16/test/slc7_amd64_gcc700/` called `testloop` which will run the example data through the TensorFlow models and verify that the predictions match the PyTorch ones to a tolerance of 1e-5.
+Building the tool in CMSSW will generate an executable in `CMSSW_10_2_16/test/slc7_amd64_gcc700/` called `testloop` which will run the example data through the TensorFlow models and verify that the predictions match the PyTorch ones to a tolerance of 1e-5. `testloop` can take several arguments: `-v true` to turn of verbose mode, `-d [path]` to change the root name of the data files, `-i [path]` to change the root name for the model directories, and `-n [# threads]` to change the number of threads each session uses. In testing I found that it was quicker to keep the number of threads at 1, since each event is processed serially anyway.
 
 # Usage
 

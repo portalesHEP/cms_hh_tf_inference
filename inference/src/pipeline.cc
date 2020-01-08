@@ -7,7 +7,7 @@ Pipeline::Pipeline(Preproc* preproc, Ensemble* ensemble, bool verbose) {
 }
 
 Pipeline::~Pipeline() {
-    delete _preproc;
+    delete _preproc;  // Are these needed?
     delete _ensemble;
 }
 

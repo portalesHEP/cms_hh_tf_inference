@@ -5,7 +5,9 @@ Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose=f
 
     _verbose = verbose;
     _n_threads = n_threads;
+    if (_verbose) std::cout << "\nBuilding ensemble\n";
     assert(Ensemble::load_ensemble(root_name));
+    if (_verbose) std::cout << "Ensemble built";
 }
 
 Ensemble::~Ensemble() {
@@ -21,26 +23,17 @@ bool Ensemble::load_ensemble(std::string root_name) {
     }
 
     // Load models and weights
-    if (_verbose) std::cout << "Required file found\n";
+    if (_verbose) std::cout << "Model weighting file found\n";
     std::string line;
     std::ifstream infile(root_name + "model_weights.txt");
     while (std::getline(infile, line)) {
         std::cout << line << "\n";
-        std::cout << "h0\n";
         std::istringstream iss(line);
-        std::cout << "h1\n";
         std::string name, weight;
-        std::cout << "h2\n";
         if (!(iss >> name >> weight)) break; // error
-        std::cout << "h3\n";
         if (_verbose) std::cout << "Loading model " << name << " with weight " << weight << "\n";
-        std::cout << "h4\n";
-        NN nn = NN(root_name + name, _n_threads, _verbose);
-        std::cout << "h5\n";
-        _models.push_back(nn);
-        std::cout << "h6\n";
+        _models.push_back(NN(root_name + name, _n_threads, _verbose);
         _weights.push_back(std::stof(weight));
-        std::cout << "h7\n";
     }
     infile.close();
     _n_models = _models.size();

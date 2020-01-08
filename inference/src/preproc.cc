@@ -4,7 +4,9 @@ Preproc::Preproc(std::string file_name, bool verbose=false) {
     /* Class to handle preprocessing of inpute features */
 
     _verbose = verbose;
+    if (_verbose) std::cout << "\nBuilding preprocessor\n";
     assert(Preproc::load_preproc(file_name));
+    if (_verbose) std::cout << "Preprocessor built\n";
 }
 
 Preproc::~Preproc() {}
@@ -17,14 +19,14 @@ bool Preproc::load_preproc(std::string file_name) {
     }
 
     // Load models and weights
-    if (_verbose) std::cout << "Required file found\n";
+    if (_verbose) std::cout << "Preprocessing constants file found\n";
     std::string line;
     std::ifstream infile(file_name);
     while (std::getline(infile, line)) {
         std::istringstream iss(line);
         std::string mean, stdev;
         if (!(iss >> mean >> stdev)) break; // error
-        if (_verbose) std::cout << "Mean " << mean << " stdev " << stdev << "\n";
+        if (_verbose) std::cout << "Mean " << mean << "\tstdev " << stdev << "\n";
         _means.push_back(std::stof(mean));
         _stdevs.push_back(std::stof(stdev));
     }

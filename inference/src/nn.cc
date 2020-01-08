@@ -36,7 +36,7 @@ float NN::predict(tensorflow::Tensor input) {
     if (_verbose) std::cout << "Launching TF session... ";
     tensorflow::Session* session = tensorflow::createSession(_model, _n_threads);
     if (_verbose) std::cout << "TF session launched\n";
-    for (unsigned int i = 0; i < input.size(); i++) std::cout << output.matrix<float>()(0,static_cast<Eigen::Index>(i)) << "\n";
+    for (Eigen::Index i = 0; i < 30; i++) std::cout << input.matrix<float>()(0,i) << "\n";
     if (_verbose) std::cout << "Running model:\n";
     std::vector<tensorflow::Tensor> outputs;
     tensorflow::run(session, {{_input_name, input}}, {_output_name}, &outputs);

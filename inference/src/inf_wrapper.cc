@@ -2,8 +2,12 @@
 
 InfWrapper::InfWrapper(std::string root_name, unsigned int n_threads, bool verbose) {
     _verbose = verbose;
+    if (_verbose) std::cout << "\nBuilding inference wrapper from " << root_name << "\n";
     InfWrapper::load_pipeline(root_name + "_0/", n_threads);
+    if (_verbose) std::cout << "Pipeline 0 built\n";
     InfWrapper::load_pipeline(root_name + "_1/", n_threads);
+    if (_verbose) std::cout << "Pipeline 1 built\n";
+    if (_verbose) std::cout << "Inference wrapper built\n";
 }
 
 InfWrapper::~InfWrapper() {

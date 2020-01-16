@@ -23,7 +23,7 @@ private:
 
 public:
     // Methods
-	Pipeline(Preproc*, Ensemble*, bool);
+	Pipeline(Preproc*, Ensemble*, bool verbose=false);
 	~Pipeline();
 	float predict(std::vector<float>);
 };

@@ -1,6 +1,6 @@
 #include "cms_hh_tf_inference/inference/interface/ensemble.hh"
 
-Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose=false) {
+Ensemble::Ensemble(std::string root_name, unsigned int n_threads, bool verbose) {
     /* Class to handle loading and inference of ensembling of models */
 
     _verbose = verbose;

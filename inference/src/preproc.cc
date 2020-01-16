@@ -1,6 +1,6 @@
 #include "cms_hh_tf_inference/inference/interface/preproc.hh"
 
-Preproc::Preproc(std::string file_name, bool verbose=false) {
+Preproc::Preproc(std::string file_name, bool verbose) {
     /* Class to handle preprocessing of inpute features */
 
     _verbose = verbose;

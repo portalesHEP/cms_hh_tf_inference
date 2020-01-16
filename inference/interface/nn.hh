@@ -25,7 +25,7 @@ private:
 
 public:
     // Methods
-	NN(std::string, unsigned int, bool);
+	NN(std::string, unsigned int n_threads=1, bool verbose=false);
 	~NN();
 	float predict(tensorflow::Tensor);
     bool load_model(std::string);

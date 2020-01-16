@@ -17,7 +17,7 @@ private:
 
 public:
     // Methods
-	InfWrapper(std::string, unsigned int, bool);
+	InfWrapper(std::string, unsigned int n_threads=1, bool verbose=false);
 	~InfWrapper();
 	float predict(std::vector<float>, unsigned long int);
     void load_pipeline(std::string, unsigned int);

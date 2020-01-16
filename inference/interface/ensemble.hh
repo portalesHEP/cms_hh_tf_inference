@@ -27,7 +27,7 @@ private:
 
 public:
     // Methods
-	Ensemble(std::string, unsigned int, bool);
+	Ensemble(std::string, unsigned int n_threads=1, bool verbose=false);
 	~Ensemble();
 	float predict(tensorflow::Tensor);
     bool load_ensemble(std::string);

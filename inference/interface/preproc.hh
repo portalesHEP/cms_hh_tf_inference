@@ -22,7 +22,7 @@ private:
 
 public:
     // Methods
-	Preproc(std::string, bool);
+	Preproc(std::string, bool verbose=false);
 	~Preproc();
 	tensorflow::Tensor process(std::vector<float>);
     bool load_preproc(std::string);

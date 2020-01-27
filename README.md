@@ -5,8 +5,8 @@ Plugin to run ensembles of TensorFlow models on incoming data in CMSSW
 
 ## For inference
 
-1. cmsrel CMSSW_10_2_16
-1. cd CMSSW_10_2_16/src
+1. cmsrel CMSSW_10_2_15
+1. cd CMSSW_10_2_15/src
 1. cmsenv
 1. git clone git@github.com:GilesStrong/cms_hh_tf_inference.git
 1. scram b -j 12

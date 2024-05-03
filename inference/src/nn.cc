@@ -9,7 +9,8 @@ NN::NN(std::string root_name, unsigned int n_threads, bool verbose) {
     assert(NN::load_model(root_name));
     if (_verbose) std::cout << "Model loaded\n";
     if (_verbose) std::cout << "Launching TF session with " << _n_threads << " threads... ";
-    _session = tensorflow::createSession(_model, _n_threads);
+    //_session = tensorflow::createSession(_model, _n_threads);
+    _session = tensorflow::createSession(_model);
     if (_verbose) std::cout << "TF session launched\n";
 }
 
